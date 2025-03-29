@@ -1,3 +1,17 @@
+"""
+weather-cli.py
+
+This script fetches the current weather report for a given location using
+the Visual Crossing Weather API and displays it in a user-friendly format.
+
+Usage:
+    python weather-cli.py <location>
+
+Arguments:
+    <location>     The name of the location for which you want the weather report.
+                   Examples: "London", "New York", "Tokyo".
+"""
+
 import sys
 import requests
 
@@ -29,16 +43,16 @@ elif sys.argv[1] == "help":
     print(HELP_MESSAGE)
     sys.exit(1)
 
-API_KEY = "YOUR_API_KEY"
+API_KEY = ""
 URL = f"https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/{location}?unitGroup=metric&key={API_KEY}"
 
-try:    
+try:
     response = requests.get(URL)
     response.raise_for_status()
-    
+
     data = response.json()
-    
-    if 'days' not in data or not data['days']:
+
+    if "days" not in data or not data["days"]:
         raise ValueError(f"No weather data found for {location}")
 
 except requests.exceptions.RequestException as e:
@@ -67,11 +81,34 @@ CYAN = "\033[36m"
 BLUE = "\033[34m"
 MAGENTA = "\033[35m"
 
+
 def weather_report():
+    """
+    Fetches and displays the weather report for the given location.
+
+    Prints details like temperature, condition, humidity, wind speed,
+    pressure, and sunrise/sunset times, formatted with color coding.
+
+    Assumes weather data is already available in the `data` variable.
+
+    Raises:
+        ValueError: If no weather data is found.
+        KeyError: If expected keys are missing.
+    """
+
     day_info = data["days"][0]
 
     print()
-    print(BOLD + CYAN + "Weather Report for " + data['resolvedAddress'] + " (Timezone: " + data['timezone'] + ")" + RESET)
+    print(
+        BOLD
+        + CYAN
+        + "Weather Report for "
+        + data["resolvedAddress"]
+        + " (Timezone: "
+        + data["timezone"]
+        + ")"
+        + RESET
+    )
 
     print(YELLOW + "═" * 55 + RESET)
 
@@ -98,5 +135,6 @@ def weather_report():
     print(BOLD + MAGENTA + "Data Source: " + RESET + " Visual Crossing Weather API")
 
     print(YELLOW + "═" * 55 + RESET)
+
 
 weather_report()
