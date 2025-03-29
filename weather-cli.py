@@ -1,8 +1,5 @@
 import sys
 import requests
-import flask
-import flask_limiter
-import redis
 
 HELP_MESSAGE = """
 Weather CLI Tool
