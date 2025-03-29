@@ -29,7 +29,7 @@ elif sys.argv[1] == "help":
     print(HELP_MESSAGE)
     sys.exit(1)
 
-API_KEY = ""
+API_KEY = "YOUR_API_KEY"
 URL = f"https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/{location}?unitGroup=metric&key={API_KEY}"
 
 try:    
