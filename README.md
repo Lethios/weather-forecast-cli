@@ -5,10 +5,10 @@ Weather Forecast CLI is a simple command-line tool to fetch and display weather 
 ---
 
 ## Features
-- Real-time weather reports (temperature, humidity, wind speed, etc.)
-- Colorful terminal output for better readability
-- Simple usage—just provide a location name
-- Error handling for invalid inputs or API failures
+- Real-time weather reports (temperature, humidity, wind speed, etc.).
+- Colorful terminal output for better readability.
+- Simple usage—just provide a location name.
+- Error handling for invalid inputs or API failures.
 
 ---
 
