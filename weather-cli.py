@@ -1,17 +1,3 @@
-"""
-weather-cli.py
-
-This script fetches the current weather report for a given location using
-the Visual Crossing Weather API and displays it in a user-friendly format.
-
-Usage:
-    python weather-cli.py <location>
-
-Arguments:
-    <location>     The name of the location for which you want the weather report.
-                   Examples: "London", "New York", "Tokyo".
-"""
-
 import sys
 import requests
 
