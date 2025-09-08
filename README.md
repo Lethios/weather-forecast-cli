@@ -15,7 +15,7 @@ Weather Forecast CLI is a simple command-line tool to fetch and display weather 
 2. **Install the required dependency:**
    ```bash
    pip install requests
-
+   ```
 
 ## Usage
 Run the program using Python:
